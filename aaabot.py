@@ -28,11 +28,6 @@ def get_status(df):
     return status
 
 def handle_command(command, channel):
-    """
-        Receives commands directed at the bot and determines if they
-        are valid commands. If so, then acts on the commands. If not,
-        returns back what it needs for clarification.
-    """
     response = "Not sure what you mean by " + command
     df = pd.read_csv("bank.csv")
     print(df)
@@ -65,11 +60,6 @@ def handle_command(command, channel):
                           text=response, as_user=True)
 
 def parse_slack_output(slack_rtm_output):
-    """
-        The Slack Real Time Messaging API is an events firehose.
-        this parsing function returns None unless a message is
-        directed at the Bot, based on its ID.
-    """
     output_list = slack_rtm_output
     if output_list and len(output_list) > 0:
         for output in output_list:

@@ -7,3 +7,5 @@ BOT_ID and SLACK_BOT_TOKEN are environment variables for security reasons.
 Commands are "@aaabot status" and "@aaabot set [side]", where the sides are Russia, Germany, UK, Japan, and USA.
 
 There's a 0% chance that this will be useful to anyone but my team.
+
+I used the instructions and some code from here: https://www.fullstackpython.com/blog/build-first-slack-bot-python.html
