@@ -27,6 +27,15 @@ def get_status(df):
 
     return status
 
+def new_game(df):
+    df.set_value(0,'Russia', '24')
+    df.set_value(0,'Germany', '40')
+    df.set_value(0,'UK', '30')
+    df.set_value(0,'Japan', '30')
+    df.set_value(0,'USA', '42')
+
+    return df
+
 def handle_command(command, channel):
     response = "Not sure what you mean by " + command
     df = pd.read_csv("bank.csv")
@@ -53,6 +62,9 @@ def handle_command(command, channel):
         df.set_value(0,'USA', value)
         response = get_status(df)
     elif re.match("status", command):
+        response = get_status(df)
+    elif re.match("gamereset", command):
+        df = new_game(df)
         response = get_status(df)
 
     df.to_csv("bank.csv", index=False)
